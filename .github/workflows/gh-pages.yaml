@@ -20,7 +20,6 @@ jobs:
           submodules: true  # Fetch Hugo themes
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
-      - name Setup Node.js
       - uses: actions/setup-node@v1
         with:
           #node-version: ${{ matrix.node-version }}
