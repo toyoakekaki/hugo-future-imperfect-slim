@@ -43,7 +43,7 @@ relativeurls = true
     iOSColor= "#ffffff"
 
   [params.header]
-    navbarTitle = "JPEC 2012"
+    navbarTitle = "Home"
     dynamicTitles = true
     #searchMenu = true
     #shareMenu = true
@@ -159,11 +159,24 @@ relativeurls = true
       hideWhenSingleColumn = false
       alwaysOnHomepage = false
 
-      [Languages.ja.params.intro.pic]
-        src = "/img/jpec.png"
-        shape = "circle"
-        width = ""
-        alt = "jpec2012"
+    [Languages.ja.params.header]
+      navbarTitle = "ホーム"
+      dynamicTitles = true
+      #searchMenu = true
+      #shareMenu = true
+      languageMenu= true
+
+    [Languages.ja.params.intro.pic]
+      src = "/img/jpec.png"
+      shape = "circle"
+      width = ""
+      alt = "jpec2012"
+
+    [Languages.ja.params.sidebar]
+      about = "日本産花きの輸出拡大を目的とする団体です"
+      postAmount = 5
+      categories = true
+      categoriesByCount = true
 
     [[Languages.ja.menu.main]]
       name = "ホーム"
