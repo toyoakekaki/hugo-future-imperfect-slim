@@ -93,6 +93,13 @@ git branch -M main
 git push -u origin main
 ```
 
+Gihub Actionsの設定
+
+* .github/workflowsの設定
+* 以下のsecretsを登録
+  * `CONTENTFUL_SPACE`
+  * `CONTENTFUL_TOKEN`
+
 ## 使い方
 
 ### 投稿
