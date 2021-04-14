@@ -58,7 +58,7 @@ relativeurls = true
     alwaysOnHomepage = false
 
     [params.intro.pic]
-      src = "img/jpec.png"
+      src = "/img/jpec.png"
       shape = "circle"
       width = ""
       alt = "jpec2012"
@@ -160,7 +160,7 @@ relativeurls = true
       alwaysOnHomepage = false
 
       [Languages.ja.params.intro.pic]
-        src = "img/jpec.png"
+        src = "/img/jpec.png"
         shape = "circle"
         width = ""
         alt = "jpec2012"
