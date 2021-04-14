@@ -1,0 +1,266 @@
+# For a description of these parameters, please visit the theme wiki.
+# https://github.com/pacollins/hugo-future-imperfect-slim/wiki/config.toml
+baseurl = "https://example.com/"
+DefaultContentLanguage  = "ja"
+title = "Japan Plant Export Council"
+theme = "future-imperfect-slim"
+paginate = 3
+disqusShortname = ""
+googleAnalytics = ""
+pluralizeListTitles = false
+disableLanguages= []
+
+[markup.goldmark.renderer]
+  unsafe= true
+
+[outputs]
+  home  = ["html", "json", "rss"]
+
+[params]
+  enableCDN = true
+  cssFiles = ["default"]
+  jsFiles  = ["default"]
+  highlightjs = true
+  highlightjsTheme = ""
+  highlightjsLang = []
+  viewMorePostsLink = "/blog/"
+  readingTime = true
+  imageStretch = ""
+  removeBlur = false
+  #socialShare = ["twitter", "facebook", "reddit", "linkedin", "pinterest", "email"]
+  socialShare = ["twitter", "facebook", "reddit", "linkedin", "pinterest", "email"]
+  hideEmptyStats = false
+
+  [params.meta]
+    description = "A theme by HTML5 UP, ported by Julio Pescador. Slimmed and enhanced by Patrick Collins. Multilingual by StatnMap. Powered by Hugo."
+    author = "Japan Plant Export Council"
+    favicon = false
+    svg = true
+    faviconVersion = "1"
+    msColor = "#ffffff"
+    iOSColor= "#ffffff"
+
+  [params.header]
+    navbarTitle = "JPEC 2012"
+    dynamicTitles = true
+    #searchMenu = true
+    #shareMenu = true
+    languageMenu= true
+
+  [params.intro]
+    header = "Japan Plant Export Council"
+    paragraph = "Another fine, responsive site template by <a href='http://html5up.net'>HTML5 UP</a>."
+    rssIntro = true
+    socialIntro = true
+    hideWhenSingleColumn = false
+    alwaysOnHomepage = false
+
+    [params.intro.pic]
+      src = "img/jpec.png"
+      shape = "circle"
+      width = ""
+      alt = "jpec2012"
+
+  [params.sidebar]
+    about = "This theme was developed for Hugo static site generator."
+    postAmount = 5
+    categories = true
+    categoriesByCount = true
+
+  [params.footer]
+    rssFooter = true
+    socialFooter= true
+
+  [params.utterances]
+    enabled = false
+    repo = ""
+    issueTerm = "pathname"
+    issueNumber = ""
+    label = ""
+    theme = "github-light"
+
+  [params.staticman]
+    enabled = false
+    api = ""  # No Trailing Slash
+    gitProvider = ""
+    username= ""
+    repo= ""
+    branch  = ""
+
+    [params.staticman.recaptcha]
+      siteKey   = ""
+      encryptedKey  = ""
+
+[menu]
+
+  [[menu.main]]
+    name  = "Home"
+    identifier= "home"
+    url = "/"
+    pre = "<i class='fa fa-home'></i>"
+    weight= 1
+
+  [[menu.main]]
+    name = "About"
+    identifier= "about"
+    url = "/about/"
+    pre = "<i class='far fa-id-card'></i>"
+    weight= 2
+
+  [[menu.main]]
+    name  = "News"
+    identifier= "blog"
+    url   = "/blog/"
+    pre   = "<i class='far fa-newspaper'></i>"
+    weight = 3
+
+  [[menu.main]]
+    name = "Categories"
+    identifier= "categories"
+    url = "/categories/"
+    pre = "<i class='fas fa-sitemap'></i>"
+    weight = 5
+
+  [[menu.main]]
+    name = "Tags"
+    identifier= "tags"
+    url = "/tags/"
+    pre = "<i class='fas fa-tags'></i>"
+    weight = 6
+
+  [[menu.main]]
+    name = "Contact"
+    identifier= "contact"
+    url = "/contact/"
+    pre = "<i class='far fa-envelope'></i>"
+    weight = 7
+
+[Languages]
+
+  [Languages.en]
+    LanguageCode = "en"
+    LanguageName = "English"
+    weight = 2
+
+  [Languages.ja]
+    LanguageCode = "ja"
+    LanguageName = "日本語"
+    title = "一般社団法人 日本植物輸出協議会"
+    description = "一般社団法人 日本植物輸出協議会は、日本産花きの輸出拡大を目的とし、輸出者であり日本全国の花き生産者と日頃から取引を行っている卸売市場と、輸出に関心を持ち積極的に海外に展開していこうとする花き生産者が集い、目的達成のために様々な活動（広報宣伝・調査・勉強会など）を行っていくために組織されました"
+    weight = 2
+
+    [Languages.ja.params.intro]
+      header = "一般社団法人<br/>日本植物輸出協議会"
+      paragraph = "日本産花きの輸出拡大を目的とする団体です"
+      rssIntro = true
+      socialIntro = true
+      hideWhenSingleColumn = false
+      alwaysOnHomepage = false
+
+      [Languages.ja.params.intro.pic]
+        src = "img/jpec.png"
+        shape = "circle"
+        width = ""
+        alt = "jpec2012"
+
+    [[Languages.ja.menu.main]]
+      name = "ホーム"
+      identifier = "home"
+      url = "/"
+      pre = "<i class='fas fa-home'></i>"
+      weight = 1
+
+    [[Languages.ja.menu.main]]
+      name = "本協議会について"
+      identifier = "about"
+      url = "/about/"
+      pre = "<i class='far fa-id-card'></i>"
+      weight  = 2
+
+    [[Languages.ja.menu.main]]
+      name = "ニュース"
+      identifier  = "blog"
+      url = "/blog/"
+      pre = "<i class='far fa-newspaper'></i>"
+      weight  = 3
+
+    [[Languages.ja.menu.main]]
+      name = "カテゴリー"
+      identifier = "categories"
+      url = "/categories/"
+      pre = "<i class='fas fa-sitemap'></i>"
+      weight  = 5
+
+    [[Languages.ja.menu.main]]
+      name = "タグ"
+      identifier = "tags"
+      url = "/tags/"
+      pre = "<i class='fas fa-tags'></i>"
+      weight = 6
+
+    [[Languages.ja.menu.main]]
+      name = "お問い合わせ"
+      identifier = "contact"
+      url = "/contact/"
+      pre = "<i class='far fa-envelope'></i>"
+      weight = 7
+
+  #[Languages.zh-CN]
+  #  LanguageCode = "zh-CN"
+  #  LanguageName = "中文 (简体)"
+  #  weight = 7
+  #
+  #[Languages.zh-TW]
+  #  LanguageCode = "zh-TW"
+  #  LanguageName = "中文 (正體)"
+  #  weight = 8
+
+[social]
+  ## Coding Communities
+  #github = "pacollins/hugo-future-imperfect-slim"
+  #gitlab = ""
+  #stackoverflow = "" # User Number
+  #bitbucket = ""
+  #jsfiddle = ""
+  #codepen = ""
+  ## Visual Art Communities
+  #deviantart  = ""
+  #flickr  = "example"
+  #behance = ""
+  #dribbble= ""
+  ## Publishing Communities
+  #wordpress   = ""
+  #medium  = ""
+  ## Professional/Business Oriented Communities
+  #linkedin= "example"
+  #linkedin_company= "examplebusiness"
+  #foursquare  = ""
+  #xing= ""
+  #slideshare  = ""
+  ## Social Networks
+  facebook= "jpec2012"
+  #googleplus  = ""
+  #reddit  = "example"
+  #quora   = ""
+  #youtube = ""
+  #vimeo   = ""
+  #whatsapp= "" # WhatsApp Number
+  #  # WeChat and QQ need testing.
+  #  wechat= ""
+  #  qq= "" # User ID Number
+  instagram = "jpec2012"
+  #tumblr  = ""
+  #twitter = "example"
+  #strava  = ""
+  #skype   = ""
+  #snapchat= ""
+  #pinterest   = "example"
+  #telegram= "example"
+  #vine= ""
+  #googlescholar   = ""
+  #orcid   = ""
+  #researchgate= "example"
+  #keybase = "example"
+  #mastodon= "example.com/@example"
+  ## Email
+  #email   = "example"

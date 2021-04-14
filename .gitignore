@@ -1,0 +1,9 @@
+*~
+*.bak
+*.orig
+.env
+public
+resources
+content/blog
+content/about
+node_modules

@@ -1,0 +1,17 @@
+{{ define "main" }}
+  <article class="post">
+    <header>
+      <div class="title">
+        <p><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+        {{ with .Description }}<p>{{ . }}</p>{{ end }}
+      </div>
+    </header>
+    <div id="content">
+      {{ .Content }}
+    </div>
+    <div>
+<div id="insta-window" class="iswd-base" data-iswd='{"username":"toyoakekaki","wrapperWidth":""}'></div>
+<script src="https://in-window-tool.web.app/v3/insta-window.js"></script>
+    </div>
+  </article>
+{{ end }}
