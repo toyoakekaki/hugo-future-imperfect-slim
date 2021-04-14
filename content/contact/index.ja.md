@@ -2,6 +2,6 @@
 title = "お問い合わせ"
 layout = "contact"
 netlify = false
-emailservice = "formspree.io/example@email.com"
+emailservice = "https://formspree.io/toyoake.flower@gmail.com"
 contactanswertime = 24
 +++
