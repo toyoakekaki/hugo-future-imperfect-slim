@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  repository_dispatch:
 
 jobs:
   deploy:
@@ -14,11 +15,13 @@ jobs:
     #    node-version: [10.x, 12.x, 14.x, 15.x]
 
     steps:
+      - name Checkout Repo
       - uses: actions/checkout@v2
         with:
           submodules: true  # Fetch Hugo themes
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
+      - name Setup Node.js
       - uses: actions/setup-node@v1
         with:
           #node-version: ${{ matrix.node-version }}
