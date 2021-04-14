@@ -2,6 +2,7 @@
 *.bak
 *.orig
 .env
+TODO.org
 public
 resources
 content/blog

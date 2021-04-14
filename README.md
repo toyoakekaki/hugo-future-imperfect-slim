@@ -83,7 +83,9 @@ contentful-hugo --init
 
 ### Github
 
-Githubレポジトリ作成後
+#### レポジトリ
+
+ウェブのダッシュボードでレポジトリ作成後
 
 ```shell
 git remote add origin git@github.com:toyoakekaki/hugo-future-imperfect-slim-contentful.git
@@ -93,12 +95,50 @@ git branch -M main
 git push -u origin main
 ```
 
+#### Webhook
+
 Gihub Actionsの設定
 
-* .github/workflowsの設定
-* 以下のsecretsを登録
+* [workflows](./.github/workflows/gh-pages.yaml)の設定
+* 以下の`Secrets`を登録
   * `CONTENTFUL_SPACE`
   * `CONTENTFUL_TOKEN`
+
+Webhookの設定
+
+* ダッシュボード>右上のユーザアイコン>`Settings`>`Developper Settings`>`Personal accesss tokens`>`Generate new token`
+  * `Note`: 適当な名前
+  * `Select scopes`: 一番上の`repo`にチェック
+
+[Rest Client for VS Code](./test.http)で確認できる
+
+
+Contentful側の設定
+
+* ダッシュボード>`Settings`>`Webhooks`>`Add Webhook`
+* 以下を設定
+
+  * Details
+    * Name: toyoakekaki/hugo-future-imperfect-slim-contentful
+    * URL: POST https://api.github.com/repos/toyoakekaki/hugo-future-imperfect-slim-contentful/dispatches
+  * Triggers
+    * Select specific triggering envents
+      * Entry (Publish/Unpublish/Delete)
+      * Assets (Publish/Unpublish/Delete)
+  * Headers
+    * Custome Header
+      * Accept: application/vnd.github.everest-preview+json
+      * User-Agent: Contentful Webhook
+    * Secret Header
+      * Authorization: token [上記の`Personal accesss token`]
+    * Content type: application/json
+  * Payload
+    * Customize the webhook payload (valueはなんでもよい:Github Actionsに表示される)
+      ```json
+    {
+      "event_type": "update_contentful"
+    }
+    ```
 
 ## 使い方
 
