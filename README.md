@@ -174,6 +174,7 @@ draft: false
 
 ## Link
 
-* [Hugo Theme Dream \| Hugo Themes](https://themes.gohugo.io/hugo-theme-dream/)
+* [Hugo Future Imperfect Slim \| Hugo Themes](https://themes.gohugo.io/hugo-future-imperfect-slim/)
+* [ModiiMedia/contentful\-hugo: Tool that pulls data from Contentful and turns it into markdown files for Hugo\. Can be used with other Static Site Generators, but has some Hugo specific features\.](https://github.com/ModiiMedia/contentful-hugo)
 * [Running static site builds with GitHub Actions and Contentful \| Contentful](https://www.contentful.com/blog/2020/06/01/running-static-site-builds-with-github-actions-and-contentful/)
 * [Creating an image gallery with Hugo and Lightbox2 \- Christian Specht](https://christianspecht.de/2020/08/10/creating-an-image-gallery-with-hugo-and-lightbox2/)

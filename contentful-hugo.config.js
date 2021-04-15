@@ -102,23 +102,22 @@ module.exports = {
                         },
                     },
                 },
+                //{
+                //    field: 'image',
+                //    options: {
+                //      valueTransformer: (ref) => {
+                //        class Image {
+                //          constructor(src, alt) {
+                //            this.src = src;
+                //            this.alt = alt;
+                //            this.stretch = "stretchH"
+                //          }
+                //        }
+                //      return  new Image(ref.fields.file.url, ref.fields.title);
+                //      }
+                //    },
+                //},
             ],
-            //overrides: [
-            //    {
-            //        field: 'image',
-            //        options: {
-            //          valueTransformer: (ref) => {
-            //            class Image {
-            //              constructor(src, alt) {
-            //                this.src = src;
-            //                this.alt = alt;
-            //              }
-            //            }
-            //            return  new Image(ref.fields.width, ref.fields.url);
-            //            },
-            //        },
-            //    },
-            //],
         },
         //{
         //    id: 'seoFields',
