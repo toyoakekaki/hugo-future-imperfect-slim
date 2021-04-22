@@ -30,7 +30,7 @@ def fetch():
     client = contentful.Client(space_id=os.getenv(
         'CONTENTFUL_SPACE'), access_token=os.getenv('CONTENTFUL_TOKEN'))
     locales = [x.strip() for x in os.getenv(
-        'CONTENTFUL_LOCALES', 'en-US').split(',')]
+        'CONTENTFUL_LOCALES', 'ja-JP,en-US').split(',')]
     default_locale = locales[0]
 
     entries = dict()
