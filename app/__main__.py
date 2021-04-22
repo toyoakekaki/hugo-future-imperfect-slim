@@ -80,6 +80,7 @@ def fetch():
 
     HUGO_CONTENT_DIR = os.path.join(
         PROJECT_DIR, os.getenv('HUGO_CONTENT_DIR', 'content/blog'))
+    os.makedirs(HUGO_CONTENT_DIR, exist_ok=True)
     for locale, x in entries.items():
         suffix = f'.{locale[:2]}' if locale != default_locale else ''
 
