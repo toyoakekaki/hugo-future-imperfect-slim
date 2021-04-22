@@ -65,60 +65,60 @@ module.exports = {
         * tags: 表示をTag.titleに変換
 
         */
-        {
-            id: 'post',
-            //directory: 'content/posts',
-            directory: 'content/blog',
-            fileExtension: 'md',
-            mainContent: 'body',
-            resolveEntries: [
-                {
-                    field: 'categories',
-                    resolveTo: 'fields.title',
-                },
-                {
-                    field: 'tags',
-                    resolveTo: 'fields.title',
-                },
-            ],
-            overrides: [
-                {
-                    // the image field is a multi-reference field
-                    field: 'images',
-                    options: {
-                        valueTransformer: (imageRefs) => {
-                            const images = [];
-                            for (const ref of imageRefs) {
-                              if (ref.fields.title) {
-                                // get the name, photo, and bio of the image
-                                // and add it to the array
-                                images.push({
-                                  alt: ref.fields.title,
-                                  src: ref.fields.file.url,
-                                  stretch: "stretchH"
-                                });
-                               }}
-                            return images;
-                        },
-                    },
-                },
-                //{
-                //    field: 'image',
-                //    options: {
-                //      valueTransformer: (ref) => {
-                //        class Image {
-                //          constructor(src, alt) {
-                //            this.src = src;
-                //            this.alt = alt;
-                //            this.stretch = "stretchH"
-                //          }
-                //        }
-                //      return  new Image(ref.fields.file.url, ref.fields.title);
-                //      }
-                //    },
-                //},
-            ],
-        },
+        //{
+        //    id: 'post',　 // pythonで生成するためわざとコメントアウト
+        //    //directory: 'content/posts',
+        //    directory: 'content/blog',
+        //    fileExtension: 'md',
+　      //    mainContent: 'body',
+        //    resolveEntries: [
+        //        {
+        //            field: 'categories',
+        //            resolveTo: 'fields.title',
+        //        },
+        //        {
+        //            field: 'tags',
+        //            resolveTo: 'fields.title',
+        //        },
+        //    ],
+        //    overrides: [
+        //        {
+        //            // the image field is a multi-reference field
+        //            field: 'images',
+        //            options: {
+        //                valueTransformer: (imageRefs) => {
+        //                    const images = [];
+        //                    for (const ref of imageRefs) {
+        //                      if (ref.fields.title) {
+        //                        // get the name, photo, and bio of the image
+        //                        // and add it to the array
+        //                        images.push({
+        //                          alt: ref.fields.title,
+        //                          src: ref.fields.file.url,
+        //                          stretch: "stretchH"
+        //                        });
+        //                       }}
+        //                    return images;
+        //                },
+        //            },
+        //        },
+        //        //{
+        //        //    field: 'image',
+        //        //    options: {
+        //        //      valueTransformer: (ref) => {
+        //        //        class Image {
+        //        //          constructor(src, alt) {
+        //        //            this.src = src;
+        //        //            this.alt = alt;
+        //        //            this.stretch = "stretchH"
+        //        //          }
+        //        //        }
+        //        //      return  new Image(ref.fields.file.url, ref.fields.title);
+        //        //      }
+        //        //    },
+        //        //},
+        //    ],
+        //},
         //{
         //    id: 'seoFields',
         //    isHeadless: true,

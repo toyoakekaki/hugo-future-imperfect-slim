@@ -1,7 +1,8 @@
 {
   "name": "my-hugo-project",
   "scripts": {
-    "dev": "contentful-hugo --preview && hugo server",
+    "dev-test": "contentful-hugo --preview && hugo server",
+    "dev": "contentful-hugo --preview && python -m app -f && hugo server",
     "build": "contentful-hugo && hugo --minify"
   },
   "dependencies": {

@@ -14,17 +14,23 @@ ifneq ("$(wildcard ./.env)","")
   include ./.env
 endif
 
+install: ## Install Python package
+	@pip install -r requirements.txt
+
 dev: ## Run server by Npm
 	@npm run dev
 
-run: ## Run server
+serve: ## Run server
 	@hugo server --bind="0.0.0.0" --baseUrl="${HOST}" --port=${PORT} --buildDrafts --watch
 
-run-without-draft: ## Run server without draft posts
+serve-without-draft: ## Run server without draft posts
 	@hugo server --watch
 
 build: clean ## Build static html
 	@hugo
+
+run: ## Run script
+	@python -m app -h
 
 deploy: build ## Deploy on Github Pages
 	@git add .

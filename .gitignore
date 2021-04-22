@@ -1,6 +1,7 @@
 *~
 *.bak
 *.orig
+*.pyc
 .env
 TODO.org
 public
@@ -8,3 +9,4 @@ resources
 content/blog
 content/about
 node_modules
+__pycache__

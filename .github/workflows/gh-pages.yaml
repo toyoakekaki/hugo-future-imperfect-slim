@@ -32,6 +32,23 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+      - name: Cache pip
+        uses: actions/cache@v2
+        with:
+          # このパスは Ubuntu に固有です
+          path: ~/.cache/pip
+          # 対応する要件ファイルにキャッシュヒットがあるかどうかを確認する
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+            ${{ runner.os }}-
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
       - name: Build
         env:
           CONTENTFUL_SPACE: ${{ secrets.CONTENTFUL_SPACE }}
