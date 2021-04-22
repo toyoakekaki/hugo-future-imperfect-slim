@@ -3,7 +3,8 @@
   "scripts": {
     "dev-test": "contentful-hugo --preview && hugo server",
     "dev": "contentful-hugo --preview && python -m app -f && hugo server",
-    "build": "contentful-hugo && hugo --minify"
+    "build-test": "contentful-hugo && hugo --minify"
+    "build": "contentful-hugo && python -m app -f && hugo --minify"
   },
   "dependencies": {
     "contentful-hugo": "^1.15.0"
