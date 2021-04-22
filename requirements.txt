@@ -1,0 +1,5 @@
+contentful==1.13.0
+rich_text_renderer==0.2.4
+html2markdown==0.1.7
+python-dotenv==0.17.0
+tomd==0.1.3
