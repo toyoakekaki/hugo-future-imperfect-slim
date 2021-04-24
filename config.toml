@@ -26,7 +26,7 @@ relativeurls = true
   highlightjsTheme = ""
   highlightjsLang = []
   viewMorePostsLink = "/blog/"
-  readingTime = true
+  readingTime = false
   imageStretch = ""
   removeBlur = false
   #socialShare = ["twitter", "facebook", "reddit", "linkedin", "pinterest", "email"]
@@ -66,8 +66,10 @@ relativeurls = true
   [params.sidebar]
     about = "This theme was developed for Hugo static site generator."
     postAmount = 5
-    categories = true
+    categories = false
     categoriesByCount = true
+    facebook = false
+    instagram = false
 
   [params.footer]
     rssFooter = true
@@ -182,8 +184,10 @@ relativeurls = true
     [Languages.ja.params.sidebar]
       about = "日本産花きの輸出拡大を目的とする団体です"
       postAmount = 5
-      categories = true
+      categories = false
       categoriesByCount = true
+      facebook = false
+      instagram = false
 
     [[Languages.ja.menu.main]]
       name = "ホーム"
