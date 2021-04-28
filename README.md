@@ -1,5 +1,11 @@
 # README
 
+## ブランチ
+
+* main: hugo単体
+* contentful: hugo + contentful
+* graphcms: hugo + graphcms
+
 ## セットアップ
 
 サイト作成
@@ -60,27 +66,6 @@ cp /path/to/someplace/Makefile .
 make run
 ```
 
-### Contentfulとの連携
-
-package.json
-
-```json
-{
-  "name": "my-hugo-project",
-  "scripts": {
-    "dev": "contentful-hugo --preview && hugo server",
-    "build": "contentful-hugo && hugo --minify"
-  }
-}
-```
-
-```shell
-npm i -S contentful-hugo
-contentful-hugo --init
-```
-
-上記で作成された`contentful-hugo.config.js`をカスタマイズする
-
 ### Github
 
 #### レポジトリ
@@ -94,51 +79,6 @@ git commit -m 'first commit'
 git branch -M main
 git push -u origin main
 ```
-
-#### Webhook
-
-Gihub Actionsの設定
-
-* [workflows](./.github/workflows/gh-pages.yaml)の設定
-* 以下の`Secrets`を登録
-  * `CONTENTFUL_SPACE`
-  * `CONTENTFUL_TOKEN`
-
-Webhookの設定
-
-* ダッシュボード>右上のユーザアイコン>`Settings`>`Developper Settings`>`Personal accesss tokens`>`Generate new token`
-  * `Note`: 適当な名前
-  * `Select scopes`: 一番上の`repo`にチェック
-
-[Rest Client for VS Code](./test.http)で確認できる
-
-
-Contentful側の設定
-
-* ダッシュボード>`Settings`>`Webhooks`>`Add Webhook`
-* 以下を設定
-
-  * Details
-    * Name: toyoakekaki/hugo-future-imperfect-slim-contentful
-    * URL: POST https://api.github.com/repos/toyoakekaki/hugo-future-imperfect-slim-contentful/dispatches
-  * Triggers
-    * Select specific triggering envents
-      * Entry (Publish/Unpublish/Delete)
-      * Assets (Publish/Unpublish/Delete)
-  * Headers
-    * Custome Header
-      * Accept: application/vnd.github.everest-preview+json
-      * User-Agent: Contentful Webhook
-    * Secret Header
-      * Authorization: token [上記の`Personal accesss token`]
-    * Content type: application/json
-  * Payload
-    * Customize the webhook payload (valueはなんでもよい:Github Actionsに表示される)
-      ```json
-    {
-      "event_type": "update_contentful"
-    }
-    ```
 
 ## 使い方
 
@@ -175,6 +115,4 @@ draft: false
 ## Link
 
 * [Hugo Future Imperfect Slim \| Hugo Themes](https://themes.gohugo.io/hugo-future-imperfect-slim/)
-* [ModiiMedia/contentful\-hugo: Tool that pulls data from Contentful and turns it into markdown files for Hugo\. Can be used with other Static Site Generators, but has some Hugo specific features\.](https://github.com/ModiiMedia/contentful-hugo)
-* [Running static site builds with GitHub Actions and Contentful \| Contentful](https://www.contentful.com/blog/2020/06/01/running-static-site-builds-with-github-actions-and-contentful/)
 * [Creating an image gallery with Hugo and Lightbox2 \- Christian Specht](https://christianspecht.de/2020/08/10/creating-an-image-gallery-with-hugo-and-lightbox2/)

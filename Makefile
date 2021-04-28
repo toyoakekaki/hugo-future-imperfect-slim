@@ -1,7 +1,7 @@
 MAKEFLAGS += --warn-undefined-variables
 SHELL := /bin/bash
 .SHELLFLAGS := -eu -o pipefail -c
-.DEFAULT_GOAL := dev
+.DEFAULT_GOAL := serve
 
 # all targets are phony
 .PHONY: $(shell egrep -o ^[a-zA-Z_-]+: $(MAKEFILE_LIST) | sed 's/://')
@@ -16,9 +16,6 @@ endif
 
 install: ## Install Python package
 	@pip install -r requirements.txt
-
-dev: ## Run server by Npm
-	@npm run dev
 
 serve: ## Run server
 	@hugo server --bind="0.0.0.0" --baseUrl="${HOST}" --port=${PORT} --buildDrafts --watch
