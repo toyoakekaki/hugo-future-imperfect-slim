@@ -29,6 +29,9 @@ build: clean ## Build static html
 run: ## Run script
 	@python -m app -h
 
+fetch: ## Fetch contents
+	@python -m app --fetch
+
 deploy: build ## Deploy on Github Pages
 	@git add .
 	@git commit -m 'modified'

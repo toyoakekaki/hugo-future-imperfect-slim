@@ -47,7 +47,7 @@ jobs:
         env:
           GRAPHCMS_ENDPOINT: ${{ secrets.GRAPHCMS_ENDPOINT }}
           GRAPHCMS_TOKEN: ${{ secrets .GRAPHCMS_TOKEN}}
-        run: npm run build
+        run: python -m app --fetch
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
