@@ -6,7 +6,9 @@
 TODO.org
 public
 resources
+.vscode
 content/blog
 content/about
 node_modules
 __pycache__
+app/var.py
