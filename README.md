@@ -60,26 +60,20 @@ cp /path/to/someplace/Makefile .
 make run
 ```
 
-### Contentfulとの連携
+### GraphCMSとの連携
 
-package.json
+#### トークンの取得
 
-```json
-{
-  "name": "my-hugo-project",
-  "scripts": {
-    "dev": "contentful-hugo --preview && hugo server",
-    "build": "contentful-hugo && hugo --minify"
-  }
-}
-```
 
-```shell
-npm i -S contentful-hugo
-contentful-hugo --init
-```
+* `GRAPHCMS_ENDPOINT`: ダッシュボード>`Settings`>Endpoints
+* `GRAPHCMS_TOKEN`
+  * `Permanent Auth Tokens`にて以下を設定して`Create`
+    * `Name`: 適当な名前
+    * `Content from stage Published`: チェック
 
-上記で作成された`contentful-hugo.config.js`をカスタマイズする
+#### コンテンツの取得
+
+コンテンツの取得は[Python Script](./app/main.py)で実施
 
 ### Github
 
@@ -88,7 +82,7 @@ contentful-hugo --init
 ウェブのダッシュボードでレポジトリ作成後
 
 ```shell
-git remote add origin git@github.com:toyoakekaki/hugo-future-imperfect-slim-contentful.git
+git remote add origin git@github.com:toyoakekaki/hugo-future-imperfect-slim.git
 git add .
 git commit -m 'first commit'
 git branch -M main
@@ -101,8 +95,8 @@ Gihub Actionsの設定
 
 * [workflows](./.github/workflows/gh-pages.yaml)の設定
 * 以下の`Secrets`を登録
-  * `CONTENTFUL_SPACE`
-  * `CONTENTFUL_TOKEN`
+  * `GRAPHCMS_ENDPOINT`
+  * `GRAPHCMS_TOKEN`
 
 Webhookの設定
 
@@ -112,23 +106,21 @@ Webhookの設定
 
 [Rest Client for VS Code](./test.http)で確認できる
 
+GraphCMS側の設定
 
-Contentful側の設定
-
-* ダッシュボード>`Settings`>`Webhooks`>`Add Webhook`
+* ダッシュボード>`Webhooks`>`Create`
 * 以下を設定
-
-  * Details
-    * Name: toyoakekaki/hugo-future-imperfect-slim-contentful
-    * URL: POST https://api.github.com/repos/toyoakekaki/hugo-future-imperfect-slim-contentful/dispatches
+  * Name: toyoakekaki/hugo-future-imperfect-slim-contentful
+  * Description: toyoakekaki/hugo-future-imperfect-slim-contentful
+  * Include payload: オン
+  * Url: https://api.github.com/repos/toyoakekaki/hugo-future-imperfect-slim-contentful/dispatches
   * Triggers
-    * Select specific triggering envents
-      * Entry (Publish/Unpublish/Delete)
-      * Assets (Publish/Unpublish/Delete)
+    * Content Model: postとpageを選択
+    * Stage: Published
   * Headers
     * Custome Header
       * Accept: application/vnd.github.everest-preview+json
-      * User-Agent: Contentful Webhook
+      * User-Agent: GraphCMS Webhook
     * Secret Header
       * Authorization: token [上記の`Personal accesss token`]
     * Content type: application/json
