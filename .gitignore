@@ -7,7 +7,7 @@ TODO.org
 public
 resources
 .vscode
-content/blog
+content/news
 content/about
 node_modules
 __pycache__

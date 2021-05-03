@@ -79,7 +79,7 @@ make run
 
 #### レポジトリ
 
-ウェブのダッシュボードでレポジトリ作成後
+Github管理画面のダッシュボードでレポジトリ作成後
 
 ```shell
 git remote add origin git@github.com:toyoakekaki/hugo-future-imperfect-slim.git
@@ -126,43 +126,81 @@ GraphCMS側の設定
     * Content type: application/json
   * Payload
     * Customize the webhook payload (valueはなんでもよい:Github Actionsに表示される)
-      ```json
+    ```json
     {
       "event_type": "update_contentful"
     }
     ```
 
-## 使い方
+## デザイン
 
-### 投稿
+### 基本のテンプレート
 
-新規投稿
+* layouts/_default/baseof.html
+  * 全ページで使われるBase Template
+  * ここでページのカラムレイアウトなどを設計し各パーツを読み込む
+* layouts/index.html
+  * トップページ
+  * 存在しない場合は以下のlist.htmlを呼び出す
+* layouts/_default/list.html
+  * セクションやTaxonomy(カテゴリーやタグ等のグルーピング)ごとの記事一覧ページ
+* layouts/_default/single.html
+  * 記事個別ページ
+  * ブログ本文
 
-```shell
-hugo new posts/2020/05/helloworld.md
-content/posts/2020/05/helloworld.md created
-```
+### future-imperfect-slimのテンプレート構成
 
-```shell
-SLUG=helloworld DATE=20200505 make post
-```
+* 基本構成
+  * layouts/_default/baseof.html: 大本の基本レイアウト
+    * layouts/partials/head.html: htmlのheadタグ
+      * layouts/partials/meta.html: htmlのheadタグ内のmeta情報
+    * layouts/partials/site-header.html: サイト共通のヘッダーセクション
+      * layouts/partials/theme-notification.html: テーマ配給元のお知らせ
+        * layouts/partials/theme-message.md: 上記から呼び出されるメッセージ
+      * layouts/partials/language-menu.html: 言語メニュー表示用ドロップダウン
+    * layouts/partials/site-intro.html: サイドバー上部のサイト情報
+      * layouts/partials/rss-icon.html
+      * layouts/partials/socnet-icon.html
+    * layouts/partials/site-sidebar.html: サイト共通のサイドバー
+    * layouts/partials/site-footer.html: サイト共通のフッタセクション
+      * layouts/partials/rss-icon.html
+      * layouts/partials/socnet-icon.html
+    * layouts/partials/scripts.html: javascriptの読み込み
+* セクション
+  * layouts/_default/about.html: aboutレイアウト
+  * layouts/_default/contact.html: contactレイアウト
+  * layouts/_default/terms.html: termsレイアウト
+* リスト
+  * layouts/_default/list.html
+    * layouts/_default/content-list.html(.Render)
+* 個別ページ
+  * layouts/_default/single.html: 個別ページ
+    * layouts/_default/header.html: 個別ページのヘッダ(.Render)
+      * layouts/_default/date.html: ヘッダの日付(.Rneder)
+      * layouts/_default/date.nl.html; ヘッダの日付(オランダ語)(.Rneder)
+    * layouts/partials/share-buttons.html: シェアボタン
+    * layouts/_default/featured.html: 特集コンテンツ(.Render)
+    * layouts/_default/stats.html(.Render)
+    * layouts/_default/comments.html(.Render)
+* その他
+  * layouts/_default/index.json.json: 全文検索用ファイル(**要確認**)
 
-文書作成
 
-```shell
-vi content/posts/2020/05/helloworld.md
-```
 
-下書きモード解除
 
-```shell
-vi content/posts/2020/05/helloworld.md
-draft: false
-```
 
-## 注意
 
-メディアファイル(css/js)を/から参照するのでnetlifyやgithub pagesのproject向き(github pagesのuserはだめ)
+
+
+以下のテンプレートを使用
+
+* ホームページ: 
+  * layouts/index.html (トップページのデザイン)
+* セクション
+  * layouts/_default/section.html (共通)
+  * layouts/<section>/section.html (セクションごと)
+* リスト
+* シングルページ
 
 ## Link
 
@@ -170,3 +208,6 @@ draft: false
 * [ModiiMedia/contentful\-hugo: Tool that pulls data from Contentful and turns it into markdown files for Hugo\. Can be used with other Static Site Generators, but has some Hugo specific features\.](https://github.com/ModiiMedia/contentful-hugo)
 * [Running static site builds with GitHub Actions and Contentful \| Contentful](https://www.contentful.com/blog/2020/06/01/running-static-site-builds-with-github-actions-and-contentful/)
 * [Creating an image gallery with Hugo and Lightbox2 \- Christian Specht](https://christianspecht.de/2020/08/10/creating-an-image-gallery-with-hugo-and-lightbox2/)
+* [Hugo のレイアウトの仕組み \- Marbles Day](https://marbles.hatenablog.com/entry/2020/11/22/204751)
+* [タクソノミー関連のテンプレートを定義する \| まくまくHugo/Goノート](https://maku77.github.io/hugo/taxonomy/template.html)
+* [各種ページにおいて \.Kind や \.IsPage、\.IsSection、\.IsNode の値がどうなるかの一覧 \| まくまくHugo/Goノート](https://maku77.github.io/hugo/template/page-types.html)

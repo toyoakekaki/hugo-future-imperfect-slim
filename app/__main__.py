@@ -150,7 +150,7 @@ class GraphcmsManager(object):
                             front_matter += f'    src: {image["url"]}\n'
                         data_map['front_matter'] = front_matter
                         data_map['body'] = x['body']['markdown']
-                        data_map['filepath'] = f'blog/{x["slug"]}.{locale}.md'.replace('.ja', '')
+                        data_map['filepath'] = f'news/{x["slug"]}.{locale}.md'.replace('.ja', '')
                         data_map['update_sec'] = self.__time_diff(x['updatedAt'])
                         result.append(data_map)
             elif model == 'jpecPages':

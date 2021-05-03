@@ -23,6 +23,8 @@ serve: ## Run server
 serve-without-draft: ## Run server without draft posts
 	@hugo server --watch
 
+fetch-serve: fetch serve ## Fetch contents and serve
+
 build: clean ## Build static html
 	@hugo
 

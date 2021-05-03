@@ -25,13 +25,14 @@ relativeurls = true
   highlightjs = true
   highlightjsTheme = ""
   highlightjsLang = []
-  viewMorePostsLink = "/blog/"
+  viewMorePostsLink = "/news/"
   readingTime = false
   imageStretch = ""
   removeBlur = false
   #socialShare = ["twitter", "facebook", "reddit", "linkedin", "pinterest", "email"]
   socialShare = ["twitter", "facebook", "reddit", "linkedin", "pinterest", "email"]
   hideEmptyStats = false
+  mainSections = [ "news" ]
 
   [params.meta]
     description = "A theme by HTML5 UP, ported by Julio Pescador. Slimmed and enhanced by Patrick Collins. Multilingual by StatnMap. Powered by Hugo."
@@ -113,8 +114,8 @@ relativeurls = true
 
   [[menu.main]]
     name  = "News"
-    identifier= "blog"
-    url   = "/blog/"
+    identifier= "news"
+    url   = "/news/"
     pre   = "<i class='far fa-newspaper'></i>"
     weight = 3
 
@@ -205,8 +206,8 @@ relativeurls = true
 
     [[Languages.ja.menu.main]]
       name = "ニュース"
-      identifier  = "blog"
-      url = "/blog/"
+      identifier  = "news"
+      url = "/news/"
       pre = "<i class='far fa-newspaper'></i>"
       weight  = 3
 
