@@ -79,6 +79,10 @@
 [submit]
   other = "Submit"
 
+# Shortcodes
+[back_to_list]
+  other = "Back to the list"
+
 # 404
 [404_pagenotfound]
   other = "Page Not Found"

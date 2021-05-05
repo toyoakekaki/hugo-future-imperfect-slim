@@ -8,12 +8,46 @@
     {{ $files := readDir "." }}
     <div id="content">
 
+
+{{ $gallery := .Paginate (where .Data.Pages "IsPage" true) }}
+{{ range $gallery.Pages }}
+  <!-- <a href="{{ .Permalink }}">{{ .Title }}</a> -->
+  {{ $link := .Permalink }}
+  {{ $title := .Title }}
+  {{ with .Resources.ByType "image" }}
+    {{ range first 1 (shuffle . )}}
+    <a href="{{ $link }}">
+      <figure>
+        <img src="{{ .RelPermalink }}" alt="{{ $title }}" width="400">
+        <figcaption>{{ $title }}</figcaption>
+      </figure>
+    </a>
+    {{ end }}
+  {{ end }}
+{{ end }}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<hr />
 <div>
-    {{ .Page.Path }}
-</div>
-<ul class="most-popular-tags">
-  {{ $basename := .Page.Dir }}
+  {{ .Site.GetPage "section" "galleries" }}<br />
+  {{ .Page.Path }}<br />
+  {{ $basename := .Page.Dir }}<br />
+  {{ $basename }}<br />
   {{ $dirs := readDir "/content/galleries" }}
   {{ $dirs }}
-</ul>
+</div>
+
 {{ end }}

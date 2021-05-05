@@ -11,6 +11,8 @@ googleAnalytics = ""
 pluralizeListTitles = false
 disableLanguages= []
 relativeurls = true
+hasCJKLanguage = true # 日本語・中国語・韓国語の単語カウントを有効にする
+summaryLength = 120 # サマリーの長さを120単語にする
 
 [markup.goldmark.renderer]
   unsafe= true

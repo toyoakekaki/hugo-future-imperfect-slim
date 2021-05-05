@@ -1,0 +1,5 @@
+---
+title: "フォトギャラリー"
+headless: true
+---
+

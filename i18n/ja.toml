@@ -77,6 +77,10 @@
 [submit]
   other = "送信する"
 
+# Shortcodes
+[back_to_list]
+  other = "一覧に戻る"
+
 # 404
 [404_pagenotfound]
   other = "ページが見つかりません"
