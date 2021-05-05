@@ -32,7 +32,9 @@ relativeurls = true
   #socialShare = ["twitter", "facebook", "reddit", "linkedin", "pinterest", "email"]
   socialShare = ["twitter", "facebook", "reddit", "linkedin", "pinterest", "email"]
   hideEmptyStats = false
-  mainSections = [ "news" ]
+  # mainSections = ["news", "galleries"] # Recent Posts in sitebar
+  mainSections = ["news"] # Recent Posts in sitebar
+  highlightColor = "red" # link color
 
   [params.meta]
     description = "A theme by HTML5 UP, ported by Julio Pescador. Slimmed and enhanced by Patrick Collins. Multilingual by StatnMap. Powered by Hugo."
@@ -69,7 +71,7 @@ relativeurls = true
     postAmount = 5
     categories = false
     categoriesByCount = true
-    facebook = false
+    facebook = true
     instagram = false
 
   [params.footer]
@@ -187,7 +189,7 @@ relativeurls = true
       postAmount = 5
       categories = false
       categoriesByCount = true
-      facebook = false
+      facebook = true
       instagram = false
 
     [[Languages.ja.menu.main]]

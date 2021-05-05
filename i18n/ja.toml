@@ -5,6 +5,8 @@
 # Sidebar
 [recent_posts]
   other = "最近の投稿"
+[recent_galleries]
+  other = "最近のギャラリー"
 [see_more]
   other = "続きを見る"
 [learn_more]
@@ -20,7 +22,8 @@
 [contact_replies]
   one = "通常、1 時間以内に返信します。"
   other = "通常、{{ .Count }} 時間以内に返信します。"
-[news]
+[neews]
+  one = "ニュース"
   other = "ニュース"
 [categories]
   other = "カテゴリー"

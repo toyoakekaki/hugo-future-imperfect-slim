@@ -5,6 +5,8 @@
 # Sidebar
 [recent_posts]
   other = "Recent Posts"
+[recent_galleries]
+  other = "Recent Galleries"
 [see_more]
   other = "See More"
 [learn_more]
@@ -21,6 +23,7 @@
   one = "Replies typically within 1 hour."
   other = "Replies typically within {{ .Count }} hours."
 [news]
+  one = "News"
   other = "News"
 [categories]
   one = "Category"
@@ -29,7 +32,6 @@
   one = "Tag"
   other = "Tags"
 [galleries]
-  one = "Gallery"
   other = "Galleries"
 [next_page]
   other = "Next Page"

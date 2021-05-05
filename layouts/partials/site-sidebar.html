@@ -1,24 +1,18 @@
 <section id="site-sidebar">
-  {{ if .Site.Params.sidebar.facebook }}
-    <section id="facebook">
-      <div id="fb-root"></div>
-      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v10.0" nonce="eYoY0haq"></script>
-      <div class="fb-page" data-href="https://www.facebook.com/jpec2012" data-tabs="timeline" data-width="500" data-height="800" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/jpec2012" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/jpec2012">一般社団法人　日本植物輸出協議会</a></blockquote></div>
-     </section>
-  {{ end }}
-  {{ if .IsHome }}
+  {{ if and .Site.Params.sidebar.facebook .IsHome }}
     <section id="facebook">
       <div id="fb-root"></div>
       <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v10.0" nonce="eYoY0haq"></script>
       <div class="fb-page" data-href="https://www.facebook.com/jpec2012" data-tabs="timeline" data-width="500" data-height="800" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/jpec2012" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/jpec2012">一般社団法人　日本植物輸出協議会</a></blockquote></div>
     </section>
   {{ end }}
-  {{ if gt .Site.Params.sidebar.postAmount 0 }}
+
+  {{ $section := "news" }}{{ if eq .Section "galleries" }}{{ $section = .Section }}{{ end }}
     <section id="recent-posts">
       <header>
-        <h1>{{ i18n "recent_posts" }}</h1>
+        <h1>{{ if eq $section "galleries"}}{{ i18n "recent_galleries" }}{{ else }}{{ i18n "recent_posts" }}{{ end }}</h1>
       </header>
-      {{ range first (.Site.Params.sidebar.postAmount | default 5) (where site.RegularPages "Type" "in" site.Params.mainSections) }}
+      {{ range first (.Site.Params.sidebar.postAmount | default 5) (where site.RegularPages "Type" $section) }}
       <article class="mini-post">
           {{ .Render "featured" }}
         <header>
@@ -27,13 +21,12 @@
         </header>
       </article>
       {{ end }}
-      {{ if ge (len (where site.RegularPages "Type" "in" site.Params.mainSections)) (.Site.Params.sidebar.postAmount | default 5) }}
+      {{ if ge (len (where site.RegularPages "Type" $section)) (.Site.Params.sidebar.postAmount | default 5) }}
         <footer>
-          <a href="{{ ( .Site.Params.viewMorePostsLink | default "news") | relLangURL }}" class="button">{{ i18n "see_more" }}</a>
+          <a href="{{ ( .Site.Params.viewMorePostsLink | default $section) | relLangURL }}" class="button">{{ i18n "see_more" }}</a>
         </footer>
       {{ end }}
     </section>
-  {{ end }}
 
   {{ if .Site.Params.sidebar.categories }}
     {{ if ne ($.Scratch.Get "showCategories") false }}

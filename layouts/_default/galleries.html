@@ -1,0 +1,19 @@
+{{ define "main" }}
+    <header>
+      <div class="title">
+        <h1><a href="{{ .RelPermalink }}">{{i18n "galleries" .Title }}</a></h1>
+        {{ with .Description }}<p>{{ . }}</p>{{ end }}
+      </div>
+    </header>
+    {{ $files := readDir "." }}
+    <div id="content">
+
+<div>
+    {{ .Page.Path }}
+</div>
+<ul class="most-popular-tags">
+  {{ $basename := .Page.Dir }}
+  {{ $dirs := readDir "/content/galleries" }}
+  {{ $dirs }}
+</ul>
+{{ end }}
