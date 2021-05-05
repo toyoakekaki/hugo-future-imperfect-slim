@@ -7,8 +7,8 @@ TODO.org
 public
 resources
 .vscode
-#content/news
 content/about
+content/_index.*
 node_modules
 __pycache__
 app/var.py
