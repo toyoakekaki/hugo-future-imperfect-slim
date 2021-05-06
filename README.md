@@ -106,31 +106,20 @@ Webhookの設定
 
 [Rest Client for VS Code](./test.http)で確認できる
 
-GraphCMS側の設定
+GraphCMS側の設定(**Github Actionsに対応していないので中継サーバに投げる**)[^github_actions]
 
 * ダッシュボード>`Webhooks`>`Create`
 * 以下を設定
   * Name: toyoakekaki/hugo-future-imperfect-slim-contentful
   * Description: toyoakekaki/hugo-future-imperfect-slim-contentful
-  * Include payload: オン
-  * Url: https://api.github.com/repos/toyoakekaki/hugo-future-imperfect-slim-contentful/dispatches
+  * Include payload: Off
+  * Url: <中継サーバのエンドポイント>
   * Triggers
     * Content Model: postとpageを選択
     * Stage: Published
-  * Headers
-    * Custome Header
-      * Accept: application/vnd.github.everest-preview+json
-      * User-Agent: GraphCMS Webhook
-    * Secret Header
-      * Authorization: token [上記の`Personal accesss token`]
-    * Content type: application/json
-  * Payload
-    * Customize the webhook payload (valueはなんでもよい:Github Actionsに表示される)
-    ```json
-    {
-      "event_type": "update_contentful"
-    }
-    ```
+  * Headers: None
+
+[^github_actions]: Github ActionsのWebhookではpayloadにevent_typeが必須だがGraphcmsでは設定できない(2021/5/6)
 
 ## デザイン
 
@@ -184,23 +173,6 @@ GraphCMS側の設定
     * layouts/_default/comments.html(.Render)
 * その他
   * layouts/_default/index.json.json: 全文検索用ファイル(**要確認**)
-
-
-
-
-
-
-
-
-以下のテンプレートを使用
-
-* ホームページ: 
-  * layouts/index.html (トップページのデザイン)
-* セクション
-  * layouts/_default/section.html (共通)
-  * layouts/<section>/section.html (セクションごと)
-* リスト
-* シングルページ
 
 ## Link
 
