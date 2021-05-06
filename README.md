@@ -106,7 +106,8 @@ Webhookの設定
 
 [Rest Client for VS Code](./test.http)で確認できる
 
-GraphCMS側の設定(**Github Actionsに対応していないので中継サーバに投げる**)[^github_actions]
+GraphCMS側の設定(**Github Actionsに対応していないので中継サーバに投げる**)
+<sup id="a1">[1](#f1)</sup>
 
 * ダッシュボード>`Webhooks`>`Create`
 * 以下を設定
@@ -119,7 +120,7 @@ GraphCMS側の設定(**Github Actionsに対応していないので中継サー�
     * Stage: Published
   * Headers: None
 
-[^github_actions]: Github ActionsのWebhookではpayloadにevent_typeが必須だがGraphcmsでは設定できない(2021/5/6)
+<b id="f1">1</b>Github ActionsのWebhookではpayloadにevent_typeが必須だがGraphcmsでは設定できない(2021/5/6) [↩](#a1)
 
 ## デザイン
 
