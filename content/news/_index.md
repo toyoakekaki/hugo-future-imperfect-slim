@@ -1,5 +1,0 @@
----
-title: "ニュース"
-headless: true
----
-

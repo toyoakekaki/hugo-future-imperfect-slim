@@ -153,6 +153,15 @@ class GraphcmsManager(object):
                         data_map['filepath'] = f'news/{x["slug"]}.{locale}.md'.replace('.ja', '')
                         data_map['update_sec'] = self.__time_diff(x['updatedAt'])
                         result.append(data_map)
+                # generate _index.md
+                for locale in ('en', 'ja'):
+                    data_map = dict()
+                    title = 'ニュース' if locale == 'ja' else 'JPEC News'
+                    data_map['front_matter'] = f'title: "{title}"\nheadless: true\n'
+                    data_map['filepath'] = f'news/_index.{locale}.md'.replace('.ja', '')
+                    data_map['body'] = ''
+                    data_map['update_sec'] = 0
+                    result.append(data_map)
             elif model == 'jpecPages':
                 for content in content_list:
                     for x in content.get('localizations'):
