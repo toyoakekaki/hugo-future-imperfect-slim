@@ -8,7 +8,7 @@ public
 resources
 .vscode
 content/about
-content/_index.*
+content/news
 node_modules
 __pycache__
 app/var.py

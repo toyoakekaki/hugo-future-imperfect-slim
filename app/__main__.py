@@ -163,7 +163,7 @@ class GraphcmsManager(object):
                         if layout:
                             front_matter += f'layout: "{x["layout"]}"\n'
                         data_map['front_matter'] = front_matter
-                        data_map['body'] = x['body']['markdown']
+                        data_map['body'] = x['body']['markdown'].replace('\n\n', '  \n')
                         data_map['filepath'] = f'{x["path"]}/_index.{locale}.md'.replace('.ja', '')
                         data_map['update_sec'] = self.__time_diff(x['updatedAt'])
                         result.append(data_map)
