@@ -56,7 +56,7 @@ summaryLength = 120 # サマリーの長さを120単語にする
 
   [params.intro]
     header = "Japan Plant Export Council"
-    paragraph = "Another fine, responsive site template by <a href='http://html5up.net'>HTML5 UP</a>."
+    paragraph = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     rssIntro = true
     socialIntro = true
     hideWhenSingleColumn = false
@@ -69,7 +69,7 @@ summaryLength = 120 # サマリーの長さを120単語にする
       alt = "jpec2012"
 
   [params.sidebar]
-    about = "This theme was developed for Hugo static site generator."
+    about = "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     postAmount = 5
     categories = false
     categoriesByCount = true
@@ -141,7 +141,7 @@ summaryLength = 120 # サマリーの長さを120単語にする
     name = "Galleries"
     identifier= "galleries"
     url = "/galleries/"
-    pre = "<i class='fas fa-photo'></i>"
+    pre = "<i class='fas fa-images'></i>"
     weight = 4
 
   [[menu.main]]
@@ -233,7 +233,7 @@ summaryLength = 120 # サマリーの長さを120単語にする
       name = "フォトギャラリー"
       identifier= "galleries"
       url = "/galleries/"
-      pre = "<i class='fas fa-photo'></i>"
+      pre = "<i class='fa fa-images'></i>"
       weight = 4
 
     [[Languages.ja.menu.main]]
