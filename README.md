@@ -62,10 +62,9 @@ make run
 
 ### GraphCMSとの連携
 
-#### トークンの取得
+#### トークンの発行
 
-
-* `GRAPHCMS_ENDPOINT`: ダッシュボード>`Settings`>Endpoints
+* `GRAPHCMS_ENDPOINT`: ダッシュボード>`Settings`>`Endpoints`
 * `GRAPHCMS_TOKEN`
   * `Permanent Auth Tokens`にて以下を設定して`Create`
     * `Name`: 適当な名前
